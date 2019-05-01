@@ -1,0 +1,19 @@
+version: '3.7'
+services:
+
+    teesandcees:
+        container_name: teesandcees
+        build: .
+        volumes:
+            - ./:/usr/local/mounted
+        ports:
+          - "8000:8000"
+        environment:
+            DEV_TEST_DEBUG: "true"
+
+    # jstests:
+    #     container_name: jstests
+    #     build: ./jstests/.
+    #     environment:
+    #         HOSTNAME: teesandcees
+    #         PORT: "8000"
