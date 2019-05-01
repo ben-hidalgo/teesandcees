@@ -1,11 +1,11 @@
 version: '3.7'
 services:
 
-    teesandcees:
-        container_name: teesandcees
-        build: .
+    tcapi:
+        container_name: tcapi
+        build: ./tcapi/.
         volumes:
-            - ./:/usr/local/mounted
+            - ./tcapi:/usr/local/mount
         ports:
           - "8000:8000"
         environment:
@@ -15,5 +15,5 @@ services:
     #     container_name: jstests
     #     build: ./jstests/.
     #     environment:
-    #         HOSTNAME: teesandcees
+    #         HOSTNAME: tcapi
     #         PORT: "8000"

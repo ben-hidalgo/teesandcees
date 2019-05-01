@@ -12,7 +12,7 @@ RUN go mod download
 
 
 #WORKDIR /usr/local/teesandcees
-WORKDIR /usr/local/mounted
+WORKDIR /usr/local/mount
 
 #COPY go.mod           go.mod
 #COPY go.sum           go.sum
