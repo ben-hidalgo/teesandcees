@@ -38,5 +38,5 @@ WORKDIR /usr/local/mount
 EXPOSE 8000
 
 #CMD [ "bash", "entrypoint.sh" ]
-#CMD [ "sleep", "999999" ]
-CMD [ "go", "run", "main.go" ]
+CMD [ "sleep", "999999" ]
+#CMD [ "go", "run", "main.go" ]

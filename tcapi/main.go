@@ -29,7 +29,7 @@ import (
 	"google.golang.org/grpc/reflection"
 
 	"google.golang.org/grpc"
-	pb "google.golang.org/grpc/examples/helloworld/helloworld"
+	pb "tcapi/helloworld"
 )
 
 const (
