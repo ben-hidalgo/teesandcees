@@ -11,6 +11,7 @@ RUN go install github.com/fullstorydev/grpcurl/cmd/grpcurl
 RUN apt-get update
 RUN apt-get -q -y install protobuf-compiler
 RUN apt-get -q -y install net-tools
+RUN apt-get -q -y install jq
 
 #
 WORKDIR /usr/local/gocache
