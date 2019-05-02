@@ -26,8 +26,6 @@ import (
 	"log"
 	"net"
 
-	"google.golang.org/grpc/reflection"
-
 	"google.golang.org/grpc"
 	pb "tcapi/helloworld"
 )
@@ -52,8 +50,6 @@ func main() {
 	}
 	s := grpc.NewServer()
 	pb.RegisterGreeterServer(s, &server{})
-
-	reflection.Register(s)
 
 	log.Printf("listening on %s", port)
 	if err := s.Serve(lis); err != nil {
