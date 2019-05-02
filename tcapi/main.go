@@ -51,7 +51,7 @@ func main() {
 		log.Fatalf("failed to listen: %v", err)
 	}
 	s := grpc.NewServer()
-	pb.RegisterGreeterServer(s, &server{})
+	//pb.RegisterGreeterServer(s, &server{})
 
 	reflection.Register(s)
 
