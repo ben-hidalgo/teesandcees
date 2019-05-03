@@ -6,7 +6,7 @@ import (
 	"log"
 	"net"
 	"os"
-	"tcapi/helloworld"
+	"tcapi/app"
 )
 
 
@@ -18,7 +18,7 @@ func main() {
 		log.Fatalf("failed to listen: %v", err)
 	}
 	s := grpc.NewServer()
-	helloworld.RegisterGreeterServer(s, &helloworld.Server{})
+	app.RegisterTcapiServer(s, &app.Server{})
 
 	log.Printf("listening on %s", address)
 	if err := s.Serve(lis); err != nil {

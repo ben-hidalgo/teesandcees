@@ -1,5 +1,5 @@
 // Package core contains common entities
-package helloworld
+package app
 
 
 type Server struct{}
