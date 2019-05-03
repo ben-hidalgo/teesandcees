@@ -11,6 +11,12 @@ services:
         environment:
             LISTEN_ADDRESS: ":8000"
 
+    protos:
+        container_name: protos
+        build: ./protos/.
+        volumes:
+            - ./protos/:/usr/local/mount
+
     # jstests:
     #     container_name: jstests
     #     build: ./jstests/.
