@@ -25,14 +25,12 @@ import (
 	"context"
 	"log"
 	"net"
+	"os"
 
 	"google.golang.org/grpc"
 	pb "tcapi/helloworld"
 )
 
-const (
-	port = ":50051"
-)
 
 // server is used to implement helloworld.GreeterServer.
 type server struct{}
@@ -44,14 +42,16 @@ func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloRe
 }
 
 func main() {
-	lis, err := net.Listen("tcp", port)
+
+	address := os.Getenv("LISTEN_ADDRESS")
+	lis, err := net.Listen("tcp", address)
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}
 	s := grpc.NewServer()
 	pb.RegisterGreeterServer(s, &server{})
 
-	log.Printf("listening on %s", port)
+	log.Printf("listening on %s", address)
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v", err)
 	}

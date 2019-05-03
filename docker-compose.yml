@@ -9,7 +9,7 @@ services:
         ports:
           - "8000:8000"
         environment:
-            DEV_TEST_DEBUG: "true"
+            LISTEN_ADDRESS: ":8000"
 
     # jstests:
     #     container_name: jstests
