@@ -1,4 +1,5 @@
-require "test/unit"
+require          'test/unit'
+require_relative '../lib/tcapi_pb.rb'
 
 class TestCreateDocument < Test::Unit::TestCase
 
