@@ -10,6 +10,6 @@ protoc --ruby_out=./artifacts/ruby tcapi.proto
 
 protoc --js_out=./artifacts/js tcapi.proto
 
-cp -rf artifacts /usr/local/mount/
+cp -rf artifacts ${MOUNT_DIR}
 
-sleep 99999
+echo success

@@ -16,6 +16,10 @@ services:
         build: ./protos/.
         volumes:
             - ./protos/:/usr/local/mount
+        environment:
+            MOUNT_DIR: /usr/local/mount
+
+
 
     # jstests:
     #     container_name: jstests
