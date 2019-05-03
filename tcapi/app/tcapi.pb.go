@@ -22,7 +22,139 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
-// The request message containing the user's name.
+type Document struct {
+	Id                   int64    `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name                 string   `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Document) Reset()         { *m = Document{} }
+func (m *Document) String() string { return proto.CompactTextString(m) }
+func (*Document) ProtoMessage()    {}
+func (*Document) Descriptor() ([]byte, []int) {
+	return fileDescriptor_0f2fcc835b9d8e7b, []int{0}
+}
+
+func (m *Document) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Document.Unmarshal(m, b)
+}
+func (m *Document) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Document.Marshal(b, m, deterministic)
+}
+func (m *Document) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Document.Merge(m, src)
+}
+func (m *Document) XXX_Size() int {
+	return xxx_messageInfo_Document.Size(m)
+}
+func (m *Document) XXX_DiscardUnknown() {
+	xxx_messageInfo_Document.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Document proto.InternalMessageInfo
+
+func (m *Document) GetId() int64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+func (m *Document) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
+type DocumentQuery struct {
+	Page                 int64    `protobuf:"varint,1,opt,name=page,proto3" json:"page,omitempty"`
+	Size                 int64    `protobuf:"varint,2,opt,name=size,proto3" json:"size,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *DocumentQuery) Reset()         { *m = DocumentQuery{} }
+func (m *DocumentQuery) String() string { return proto.CompactTextString(m) }
+func (*DocumentQuery) ProtoMessage()    {}
+func (*DocumentQuery) Descriptor() ([]byte, []int) {
+	return fileDescriptor_0f2fcc835b9d8e7b, []int{1}
+}
+
+func (m *DocumentQuery) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DocumentQuery.Unmarshal(m, b)
+}
+func (m *DocumentQuery) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DocumentQuery.Marshal(b, m, deterministic)
+}
+func (m *DocumentQuery) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DocumentQuery.Merge(m, src)
+}
+func (m *DocumentQuery) XXX_Size() int {
+	return xxx_messageInfo_DocumentQuery.Size(m)
+}
+func (m *DocumentQuery) XXX_DiscardUnknown() {
+	xxx_messageInfo_DocumentQuery.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DocumentQuery proto.InternalMessageInfo
+
+func (m *DocumentQuery) GetPage() int64 {
+	if m != nil {
+		return m.Page
+	}
+	return 0
+}
+
+func (m *DocumentQuery) GetSize() int64 {
+	if m != nil {
+		return m.Size
+	}
+	return 0
+}
+
+type DocumentList struct {
+	Documents            []*Document `protobuf:"bytes,1,rep,name=documents,proto3" json:"documents,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `json:"-"`
+	XXX_sizecache        int32       `json:"-"`
+}
+
+func (m *DocumentList) Reset()         { *m = DocumentList{} }
+func (m *DocumentList) String() string { return proto.CompactTextString(m) }
+func (*DocumentList) ProtoMessage()    {}
+func (*DocumentList) Descriptor() ([]byte, []int) {
+	return fileDescriptor_0f2fcc835b9d8e7b, []int{2}
+}
+
+func (m *DocumentList) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DocumentList.Unmarshal(m, b)
+}
+func (m *DocumentList) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DocumentList.Marshal(b, m, deterministic)
+}
+func (m *DocumentList) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DocumentList.Merge(m, src)
+}
+func (m *DocumentList) XXX_Size() int {
+	return xxx_messageInfo_DocumentList.Size(m)
+}
+func (m *DocumentList) XXX_DiscardUnknown() {
+	xxx_messageInfo_DocumentList.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DocumentList proto.InternalMessageInfo
+
+func (m *DocumentList) GetDocuments() []*Document {
+	if m != nil {
+		return m.Documents
+	}
+	return nil
+}
+
 type HelloRequest struct {
 	Name                 string   `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -34,7 +166,7 @@ func (m *HelloRequest) Reset()         { *m = HelloRequest{} }
 func (m *HelloRequest) String() string { return proto.CompactTextString(m) }
 func (*HelloRequest) ProtoMessage()    {}
 func (*HelloRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_0f2fcc835b9d8e7b, []int{0}
+	return fileDescriptor_0f2fcc835b9d8e7b, []int{3}
 }
 
 func (m *HelloRequest) XXX_Unmarshal(b []byte) error {
@@ -62,7 +194,6 @@ func (m *HelloRequest) GetName() string {
 	return ""
 }
 
-// The response message containing the greetings
 type HelloReply struct {
 	Message              string   `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -74,7 +205,7 @@ func (m *HelloReply) Reset()         { *m = HelloReply{} }
 func (m *HelloReply) String() string { return proto.CompactTextString(m) }
 func (*HelloReply) ProtoMessage()    {}
 func (*HelloReply) Descriptor() ([]byte, []int) {
-	return fileDescriptor_0f2fcc835b9d8e7b, []int{1}
+	return fileDescriptor_0f2fcc835b9d8e7b, []int{4}
 }
 
 func (m *HelloReply) XXX_Unmarshal(b []byte) error {
@@ -103,6 +234,9 @@ func (m *HelloReply) GetMessage() string {
 }
 
 func init() {
+	proto.RegisterType((*Document)(nil), "app.Document")
+	proto.RegisterType((*DocumentQuery)(nil), "app.DocumentQuery")
+	proto.RegisterType((*DocumentList)(nil), "app.DocumentList")
 	proto.RegisterType((*HelloRequest)(nil), "app.HelloRequest")
 	proto.RegisterType((*HelloReply)(nil), "app.HelloReply")
 }
@@ -110,16 +244,24 @@ func init() {
 func init() { proto.RegisterFile("app/tcapi.proto", fileDescriptor_0f2fcc835b9d8e7b) }
 
 var fileDescriptor_0f2fcc835b9d8e7b = []byte{
-	// 141 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x4f, 0x2c, 0x28, 0xd0,
-	0x2f, 0x49, 0x4e, 0x2c, 0xc8, 0xd4, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x4e, 0x2c, 0x28,
-	0x50, 0x52, 0xe2, 0xe2, 0xf1, 0x48, 0xcd, 0xc9, 0xc9, 0x0f, 0x4a, 0x2d, 0x2c, 0x4d, 0x2d, 0x2e,
-	0x11, 0x12, 0xe2, 0x62, 0xc9, 0x4b, 0xcc, 0x4d, 0x95, 0x60, 0x54, 0x60, 0xd4, 0xe0, 0x0c, 0x02,
-	0xb3, 0x95, 0xd4, 0xb8, 0xb8, 0xa0, 0x6a, 0x0a, 0x72, 0x2a, 0x85, 0x24, 0xb8, 0xd8, 0x73, 0x53,
-	0x8b, 0x8b, 0x13, 0xd3, 0x61, 0x8a, 0x60, 0x5c, 0x23, 0x4b, 0x2e, 0xd6, 0x10, 0x90, 0xf9, 0x42,
-	0x06, 0x5c, 0x1c, 0xc1, 0x89, 0x95, 0x60, 0x3d, 0x42, 0x82, 0x7a, 0x89, 0x05, 0x05, 0x7a, 0xc8,
-	0x76, 0x48, 0xf1, 0x23, 0x0b, 0x15, 0xe4, 0x54, 0x2a, 0x31, 0x24, 0xb1, 0x81, 0x9d, 0x64, 0x0c,
-	0x08, 0x00, 0x00, 0xff, 0xff, 0x0a, 0xe2, 0x57, 0xeb, 0xa5, 0x00, 0x00, 0x00,
+	// 271 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x54, 0x51, 0x4d, 0x4f, 0x83, 0x40,
+	0x14, 0x64, 0xc1, 0x8f, 0xf2, 0xa4, 0x6d, 0xfa, 0x4e, 0x84, 0x13, 0xd9, 0x83, 0x21, 0x31, 0xc1,
+	0xa6, 0x1e, 0x7a, 0xf0, 0xa8, 0x89, 0x1e, 0xbc, 0xb8, 0xfa, 0x07, 0xd6, 0xb2, 0x31, 0x24, 0x50,
+	0x9e, 0xec, 0x72, 0xc0, 0xdf, 0xe3, 0x0f, 0x35, 0xac, 0x6c, 0x85, 0xdb, 0xcc, 0xec, 0x4c, 0xde,
+	0x64, 0x16, 0xd6, 0x92, 0xe8, 0xd6, 0x1c, 0x24, 0x95, 0x39, 0xb5, 0x8d, 0x69, 0x30, 0x90, 0x44,
+	0x3c, 0x87, 0xc5, 0x63, 0x73, 0xe8, 0x6a, 0x75, 0x34, 0xb8, 0x02, 0xbf, 0x2c, 0x62, 0x96, 0xb2,
+	0x2c, 0x10, 0x7e, 0x59, 0x20, 0xc2, 0xd9, 0x51, 0xd6, 0x2a, 0xf6, 0x53, 0x96, 0x85, 0xc2, 0x62,
+	0xbe, 0x87, 0xa5, 0xf3, 0xbf, 0x76, 0xaa, 0xed, 0x07, 0x13, 0xc9, 0x4f, 0x35, 0xc6, 0x2c, 0x1e,
+	0x34, 0x5d, 0x7e, 0xff, 0x05, 0x03, 0x61, 0x31, 0xbf, 0x87, 0xc8, 0x05, 0x5f, 0x4a, 0x6d, 0xf0,
+	0x06, 0xc2, 0x62, 0xe4, 0x3a, 0x66, 0x69, 0x90, 0x5d, 0xed, 0x96, 0xb9, 0x24, 0xca, 0x9d, 0x4b,
+	0xfc, 0xbf, 0x73, 0x0e, 0xd1, 0xb3, 0xaa, 0xaa, 0x46, 0xa8, 0xaf, 0x4e, 0x69, 0x73, 0x6a, 0xc6,
+	0x26, 0xcd, 0xae, 0x01, 0x46, 0x0f, 0x55, 0x3d, 0xc6, 0x70, 0x59, 0x2b, 0xad, 0x5d, 0xb3, 0x50,
+	0x38, 0xba, 0xfb, 0x61, 0x70, 0xfe, 0x3e, 0xcc, 0x80, 0x5b, 0x58, 0xbc, 0xc9, 0xde, 0x86, 0x70,
+	0x63, 0x6f, 0x4f, 0x8f, 0x24, 0xeb, 0xa9, 0x44, 0x55, 0xcf, 0x3d, 0xdc, 0xc2, 0xea, 0xa1, 0x55,
+	0xd2, 0xa8, 0xd3, 0x66, 0xf3, 0xce, 0xc9, 0x9c, 0x72, 0x0f, 0xf7, 0x10, 0x3d, 0x29, 0xe3, 0x04,
+	0x8d, 0x38, 0x33, 0xd8, 0x09, 0x93, 0xcd, 0x4c, 0x1b, 0xd6, 0xe1, 0xde, 0xc7, 0x85, 0xfd, 0xa4,
+	0xbb, 0xdf, 0x00, 0x00, 0x00, 0xff, 0xff, 0x1a, 0x9e, 0x06, 0xb3, 0xb7, 0x01, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -134,8 +276,9 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type TcapiClient interface {
-	// Sends a greeting
 	SayHello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error)
+	CreateDocument(ctx context.Context, in *Document, opts ...grpc.CallOption) (*Document, error)
+	GetDocuments(ctx context.Context, in *DocumentQuery, opts ...grpc.CallOption) (*DocumentList, error)
 }
 
 type tcapiClient struct {
@@ -155,10 +298,29 @@ func (c *tcapiClient) SayHello(ctx context.Context, in *HelloRequest, opts ...gr
 	return out, nil
 }
 
+func (c *tcapiClient) CreateDocument(ctx context.Context, in *Document, opts ...grpc.CallOption) (*Document, error) {
+	out := new(Document)
+	err := c.cc.Invoke(ctx, "/app.Tcapi/CreateDocument", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tcapiClient) GetDocuments(ctx context.Context, in *DocumentQuery, opts ...grpc.CallOption) (*DocumentList, error) {
+	out := new(DocumentList)
+	err := c.cc.Invoke(ctx, "/app.Tcapi/GetDocuments", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TcapiServer is the server API for Tcapi service.
 type TcapiServer interface {
-	// Sends a greeting
 	SayHello(context.Context, *HelloRequest) (*HelloReply, error)
+	CreateDocument(context.Context, *Document) (*Document, error)
+	GetDocuments(context.Context, *DocumentQuery) (*DocumentList, error)
 }
 
 func RegisterTcapiServer(s *grpc.Server, srv TcapiServer) {
@@ -183,6 +345,42 @@ func _Tcapi_SayHello_Handler(srv interface{}, ctx context.Context, dec func(inte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Tcapi_CreateDocument_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Document)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TcapiServer).CreateDocument(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/app.Tcapi/CreateDocument",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TcapiServer).CreateDocument(ctx, req.(*Document))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Tcapi_GetDocuments_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DocumentQuery)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TcapiServer).GetDocuments(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/app.Tcapi/GetDocuments",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TcapiServer).GetDocuments(ctx, req.(*DocumentQuery))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Tcapi_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "app.Tcapi",
 	HandlerType: (*TcapiServer)(nil),
@@ -190,6 +388,14 @@ var _Tcapi_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SayHello",
 			Handler:    _Tcapi_SayHello_Handler,
+		},
+		{
+			MethodName: "CreateDocument",
+			Handler:    _Tcapi_CreateDocument_Handler,
+		},
+		{
+			MethodName: "GetDocuments",
+			Handler:    _Tcapi_GetDocuments_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
