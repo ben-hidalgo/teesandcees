@@ -4,3 +4,6 @@ docker-tcapi:
 
 docker-protos:
 	docker-compose up --build protos
+
+docker-testtcapi:
+	docker-compose up --build testtcapi

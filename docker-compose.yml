@@ -19,6 +19,11 @@ services:
         environment:
             MOUNT_DIR: /usr/local/mount
 
+    testtcapi:
+        container_name: testtcapi
+        build: ./testtcapi/.
+        environment:
+            DIAL_TARGET: "tcapi:8000"
 
 
     # jstests:
