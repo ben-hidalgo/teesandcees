@@ -3,6 +3,7 @@
 require          'test/unit'
 require          'grpc'
 require_relative '../lib/tcapi_pb.rb'
+require_relative '../lib/tcapi_services_pb.rb'
 
 class TestCreateDocument < Test::Unit::TestCase
 
@@ -11,7 +12,7 @@ class TestCreateDocument < Test::Unit::TestCase
     end
 
     def test_main
-      #stub = Tcapi::Stub.new('localhost:50051', :this_channel_is_insecure)
+      stub = App::Tcapi::Stub.new('localhost:50051', :this_channel_is_insecure)
     end
 
 end

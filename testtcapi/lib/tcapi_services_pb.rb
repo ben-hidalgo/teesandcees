@@ -2,7 +2,7 @@
 # Source: tcapi.proto for package 'app'
 
 require 'grpc'
-require 'tcapi_pb'
+require_relative 'tcapi_pb'
 
 module App
   module Tcapi
