@@ -5,6 +5,7 @@ docker-tcapi:
 docker-protos:
 	docker-compose up --build protos
 
-docker-testtcapi: docker-protos
-	cp protos/artifacts/ruby/tcapi_pb.rb testtcapi/lib/
+docker-testtcapi:
+	mkdir -p testtcapi/protos/
+	cp protos/tcapi.proto testtcapi/protos/
 	docker-compose up --build testtcapi

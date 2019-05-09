@@ -22,7 +22,10 @@ services:
     testtcapi:
         container_name: testtcapi
         build: ./testtcapi/.
+        volumes:
+            - ./testtcapi/:/usr/local/mount
         environment:
             DIAL_TARGET: "tcapi:8000"
-            SLEEP: "999999"
             # SLEEP: "0"
+            SLEEP: "999999"
+            MOUNT_DIR: /usr/local/mount

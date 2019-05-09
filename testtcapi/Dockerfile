@@ -13,5 +13,6 @@ COPY run_all.rb run_all.rb
 COPY entrypoint.sh entrypoint.sh
 COPY tests/ tests/
 COPY lib/ lib/
+COPY protos/ protos/
 
 CMD [ "bash", "entrypoint.sh" ]
