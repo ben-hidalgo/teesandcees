@@ -24,11 +24,5 @@ services:
         build: ./testtcapi/.
         environment:
             DIAL_TARGET: "tcapi:8000"
-
-
-    # jstests:
-    #     container_name: jstests
-    #     build: ./jstests/.
-    #     environment:
-    #         HOSTNAME: tcapi
-    #         PORT: "8000"
+            SLEEP: "999999"
+            # SLEEP: "0"

@@ -4,6 +4,8 @@ RUN apt-get update
 RUN apt-get -q -y install vim
 
 RUN gem install google-protobuf
+RUN gem install grpc
+RUN gem install grpc-tools
 
 WORKDIR /usr/local/testtcapi
 
