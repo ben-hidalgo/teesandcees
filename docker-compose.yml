@@ -25,7 +25,7 @@ services:
         volumes:
             - ./testtcapi/:/usr/local/mount
         environment:
-            DIAL_TARGET: "tcapi:8000"
-            # SLEEP: "0"
-            SLEEP: "999999"
+            STUB_ADDRESS: "tcapi:8000"
+            SLEEP: "0"
+            # SLEEP: "999999"
             MOUNT_DIR: /usr/local/mount

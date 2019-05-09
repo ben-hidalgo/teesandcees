@@ -11,6 +11,8 @@ cp lib/tcapi_services_pb.rb ${MOUNT_DIR}/lib/tcapi_services_pb.rb
 
 sed -i "s/require 'tcapi_pb'/require_relative 'tcapi_pb'/g" ${MOUNT_DIR}/lib/tcapi_services_pb.rb
 
+sed -i "s/require 'tcapi_pb'/require_relative 'tcapi_pb'/g" ./lib/tcapi_services_pb.rb
+
 sleep ${SLEEP}
 
 ruby run_all.rb

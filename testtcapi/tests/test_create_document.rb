@@ -12,7 +12,7 @@ class TestCreateDocument < Test::Unit::TestCase
     end
 
     def test_main
-      stub = App::Tcapi::Stub.new('tcapi:8000', :this_channel_is_insecure)
+      stub = App::Tcapi::Stub.new(ENV['STUB_ADDRESS'], :this_channel_is_insecure)
 
       req = App::HelloRequest.new(name: "My name")
 
