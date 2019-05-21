@@ -29,3 +29,22 @@ services:
             SLEEP: "0"
             # SLEEP: "999999"
             MOUNT_DIR: /usr/local/mount
+
+    redis:
+        container_name: redis
+        image: 'bitnami/redis:latest'
+        environment:
+          - ALLOW_EMPTY_PASSWORD=yes
+        # volumes:
+        #   - '/path/to/redis-persistence:/bitnami'
+
+    sharedb:
+        container_name: sharedb
+        build: ./sharedb/.
+        volumes:
+            - ./sharedb/:/usr/local/mount
+        ports:
+          - "8080:8080"
+        environment:
+            SLEEP: "0"
+            # SLEEP: "999999"
