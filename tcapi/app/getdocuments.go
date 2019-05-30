@@ -6,8 +6,6 @@ import (
 	"log"
 )
 
-
-
 func (c *Server) GetDocuments(ctx context.Context, in *DocumentQuery) (*DocumentList, error) {
 	log.Printf("Received document: %v", in)
 
@@ -19,4 +17,3 @@ func (c *Server) GetDocuments(ctx context.Context, in *DocumentQuery) (*Document
 
 	return &DocumentList{Documents: docs}, nil
 }
-

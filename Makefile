@@ -1,3 +1,8 @@
+local-tcapi:
+	(cd tcapi && \
+		go fmt ./... && \
+		LISTEN_ADDRESS=":8000" \
+		go run main.go)
 
 docker-tcapi:
 	docker-compose up --build tcapi

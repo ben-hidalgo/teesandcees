@@ -9,7 +9,6 @@ import (
 	"tcapi/app"
 )
 
-
 func main() {
 
 	address := os.Getenv("LISTEN_ADDRESS")
