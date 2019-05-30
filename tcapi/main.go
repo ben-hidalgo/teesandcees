@@ -24,7 +24,7 @@ func main() {
 		log.Fatalf("failed to listen: %v", err)
 	}
 	s := grpc.NewServer()
-	app.RegisterTcapiServer(s, &app.Server{})
+	app.RegisterTcapiServer(s, server)
 
 	log.Printf("listening on %s", address)
 	if err := s.Serve(lis); err != nil {

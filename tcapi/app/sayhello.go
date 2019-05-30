@@ -7,7 +7,11 @@ import (
 )
 
 // SayHello implements app.GreeterServer
-func (c *Server) SayHello(ctx context.Context, in *HelloRequest) (*HelloReply, error) {
-	log.Printf("Received: %v", in.Name)
-	return &HelloReply{Message: "Hello " + in.Name}, nil
+func (s *Server) SayHello(ctx context.Context, hr *HelloRequest) (*HelloReply, error) {
+
+	log.Printf("SayHello() hello: %v", hr.Name)
+
+	log.Printf("SayHello() s.Rc=%v", s.Rc)
+
+	return &HelloReply{Message: "Hello " + hr.Name}, nil
 }

@@ -6,7 +6,10 @@ import (
 	"log"
 )
 
-func (c *Server) CreateDocument(ctx context.Context, in *Document) (*Document, error) {
-	log.Printf("Received document: %v", in)
+func (s *Server) CreateDocument(ctx context.Context, in *Document) (*Document, error) {
+	log.Printf("CreateDocument() received document: %v", in)
+
+	log.Printf("CreateDocument() s.Rc=%v", s.Rc)
+
 	return &Document{Id: 99, Name: in.Name}, nil
 }

@@ -6,8 +6,11 @@ import (
 	"log"
 )
 
-func (c *Server) GetDocuments(ctx context.Context, in *DocumentQuery) (*DocumentList, error) {
-	log.Printf("Received document: %v", in)
+func (s *Server) GetDocuments(ctx context.Context, in *DocumentQuery) (*DocumentList, error) {
+
+	log.Printf("GetDocuments() Received document: %v", in)
+
+	log.Printf("GetDocuments() s.Rc=%v", s.Rc)
 
 	doc1 := &Document{Id: 1, Name: "d1"}
 

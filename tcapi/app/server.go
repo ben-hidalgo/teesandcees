@@ -1,13 +1,14 @@
 package app
 
 import (
-	"fmt"
 	"github.com/go-redis/redis"
 	"os"
 	"strconv"
 )
 
-type Server struct{}
+type Server struct {
+	Rc *redis.Client
+}
 
 func InitRedis(server *Server) error {
 
@@ -22,8 +23,12 @@ func InitRedis(server *Server) error {
 		DB:       db,
 	})
 
-	pong, err := client.Ping().Result()
-	fmt.Println(pong, err)
-	// Output: PONG <nil>
+	_, err = client.Ping().Result()
+	if err != nil {
+		return err
+	}
+
+	server.Rc = client
+
 	return nil
 }

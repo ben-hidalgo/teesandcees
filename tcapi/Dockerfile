@@ -35,8 +35,10 @@ WORKDIR /usr/local/mount
 #COPY app/             app/
 #COPY restful/         restful/
 
+COPY . .
+
 EXPOSE 8000
 
 #CMD [ "bash", "entrypoint.sh" ]
-CMD [ "sleep", "999999" ]
-#CMD [ "go", "run", "main.go" ]
+#CMD [ "sleep", "999999" ]
+CMD [ "go", "run", "main.go" ]
