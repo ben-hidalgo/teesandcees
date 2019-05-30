@@ -1,20 +1,20 @@
 var http = require('http');
 var express = require('express');
 var ShareDB = require('sharedb');
-var redis = require("redis");
+// var redis = require("redis");
 var WebSocket = require('ws');
 var WebSocketJSONStream = require('@teamwork/websocket-json-stream');
 
 
-const db = require('sharedb-mongo')('mongodb://localhost:27017/local');
+const db = require('sharedb-mongo')('mongodb://mongo:27017/local');
 
-var client = redis.createClient('redis://user@redis:6379');
+// var client = redis.createClient('redis://user@redis:6379');
 
-var redisPubsub = require('sharedb-redis-pubsub')(client); // Redis client being an existing redis client connection
+// var redisPubsub = require('sharedb-redis-pubsub')(client); // Redis client being an existing redis client connection
 
 var backend = new ShareDB({
   db: db,  // db would be your mongo db or other storage location
-  pubsub: redisPubsub
+  // pubsub: redisPubsub
 });
 
 var backend = new ShareDB();
