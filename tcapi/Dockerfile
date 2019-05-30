@@ -5,8 +5,8 @@ ENV GO111MODULE=on
 RUN go get     github.com/golang/protobuf/protoc-gen-go
 RUN go install github.com/golang/protobuf/protoc-gen-go
 
-RUN go get     github.com/fullstorydev/grpcurl
-RUN go install github.com/fullstorydev/grpcurl/cmd/grpcurl
+#RUN go get     github.com/fullstorydev/grpcurl
+#RUN go install github.com/fullstorydev/grpcurl/cmd/grpcurl
 
 RUN apt-get update
 RUN apt-get -q -y install protobuf-compiler
@@ -23,19 +23,14 @@ RUN go mod download
 
 
 
-WORKDIR /usr/local/greeter_client
-RUN wget https://raw.githubusercontent.com/grpc/grpc-go/master/examples/helloworld/greeter_client/main.go
+#WORKDIR /usr/local/greeter_client
+#RUN wget https://raw.githubusercontent.com/grpc/grpc-go/master/examples/helloworld/greeter_client/main.go
 
 WORKDIR /usr/local/mount
 
-#COPY go.mod           go.mod
-#COPY go.sum           go.sum
-#COPY entrypoint.sh    entrypoint.sh
-#COPY main.go          main.go
-#COPY app/             app/
-#COPY restful/         restful/
-
 COPY . .
+
+RUN --go_out=plugins=grpc:. app/tcapi.proto
 
 EXPOSE 8000
 

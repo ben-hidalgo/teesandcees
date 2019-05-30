@@ -1,4 +1,6 @@
 local-tcapi:
+	mkdir -p tcapi/protos/
+	cp protos/tcapi.proto tcapi/protos/
 	(cd tcapi && \
 		go fmt ./... && \
 		LISTEN_ADDRESS=":8000" \
@@ -8,6 +10,7 @@ local-tcapi:
 		go run main.go)
 
 docker-tcapi:
+	cp protos/tcapi.proto tcapi/app/
 	docker-compose up --build tcapi
 
 docker-protos:
