@@ -11,6 +11,9 @@ docker-redis:
 docker-sharedb:
 	docker-compose up --build sharedb
 
+docker-mongo:
+	docker-compose up --build mongo
+
 docker-testtcapi:
 	mkdir -p testtcapi/protos/
 	cp protos/tcapi.proto testtcapi/protos/

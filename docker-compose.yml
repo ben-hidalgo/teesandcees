@@ -33,6 +33,8 @@ services:
     redis:
         container_name: redis
         image: 'bitnami/redis:latest'
+        ports:
+          - "6379:6379"
         environment:
           - ALLOW_EMPTY_PASSWORD=yes
         # volumes:
@@ -48,3 +50,11 @@ services:
         environment:
             SLEEP: "0"
             # SLEEP: "999999"
+
+    mongo:
+        container_name: mongo
+        image: mongo
+        restart: always
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: local
+            MONGO_INITDB_ROOT_PASSWORD: local
