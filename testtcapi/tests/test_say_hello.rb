@@ -14,9 +14,9 @@ class TestCreateDocument < Test::Unit::TestCase
     def test_main
       stub = App::Tcapi::Stub.new(ENV['STUB_ADDRESS'], :this_channel_is_insecure)
 
-      req = App::Document.new(name: "Doc name")
+      req = App::HelloRequest.new(name: "My name")
 
-      rep = stub.create_document(req)
+      rep = stub.say_hello(req)
     end
 
 end

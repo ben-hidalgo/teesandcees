@@ -6,7 +6,7 @@ require 'google/protobuf'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("tcapi.proto", :syntax => :proto3) do
     add_message "app.Document" do
-      optional :id, :int64, 1
+      optional :uuid, :string, 1
       optional :name, :string, 2
     end
     add_message "app.DocumentQuery" do
