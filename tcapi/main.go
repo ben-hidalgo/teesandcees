@@ -11,6 +11,8 @@ import (
 
 func main() {
 
+	app.ExampleNewClient()
+
 	address := os.Getenv("LISTEN_ADDRESS")
 	lis, err := net.Listen("tcp", address)
 	if err != nil {

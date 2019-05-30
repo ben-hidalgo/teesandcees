@@ -2,6 +2,7 @@ local-tcapi:
 	(cd tcapi && \
 		go fmt ./... && \
 		LISTEN_ADDRESS=":8000" \
+		REDIS_ADDRESS="localhost:6379" \
 		go run main.go)
 
 docker-tcapi:
