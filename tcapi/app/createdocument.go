@@ -3,6 +3,7 @@ package app
 
 import (
 	"context"
+	"github.com/google/uuid"
 	"log"
 )
 
@@ -11,5 +12,10 @@ func (s *Server) CreateDocument(ctx context.Context, in *Document) (*Document, e
 
 	log.Printf("CreateDocument() s.Rc=%v", s.Rc)
 
-	return &Document{Id: 99, Name: in.Name}, nil
+	uuid, err := uuid.NewUUID()
+	if err != nil {
+		return nil, err
+	}
+
+	return &Document{Uuid: uuid.String(), Name: in.Name}, nil
 }

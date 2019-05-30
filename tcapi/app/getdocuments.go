@@ -12,9 +12,9 @@ func (s *Server) GetDocuments(ctx context.Context, in *DocumentQuery) (*Document
 
 	log.Printf("GetDocuments() s.Rc=%v", s.Rc)
 
-	doc1 := &Document{Id: 1, Name: "d1"}
+	doc1 := &Document{Uuid: "document:1", Name: "d1"}
 
-	doc2 := &Document{Id: 2, Name: "d2"}
+	doc2 := &Document{Uuid: "document:2", Name: "d2"}
 
 	docs := []*Document{doc1, doc2}
 

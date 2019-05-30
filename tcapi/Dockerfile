@@ -30,7 +30,7 @@ WORKDIR /usr/local/mount
 
 COPY . .
 
-RUN --go_out=plugins=grpc:. app/tcapi.proto
+RUN protoc --go_out=plugins=grpc:. app/tcapi.proto
 
 EXPOSE 8000
 
