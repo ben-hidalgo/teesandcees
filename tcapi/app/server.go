@@ -4,18 +4,26 @@ import (
 	"fmt"
 	"github.com/go-redis/redis"
 	"os"
+	"strconv"
 )
 
 type Server struct{}
 
-func ExampleNewClient() {
+func InitRedis(server *Server) error {
+
+	db, err := strconv.Atoi(os.Getenv("REDIS_DB"))
+	if err != nil {
+		return err
+	}
+
 	client := redis.NewClient(&redis.Options{
 		Addr:     os.Getenv("REDIS_ADDRESS"),
-		Password: "", // no password set
-		DB:       0,  // use default DB
+		Password: os.Getenv("REDIS_PASSWORD"),
+		DB:       db,
 	})
 
 	pong, err := client.Ping().Result()
 	fmt.Println(pong, err)
 	// Output: PONG <nil>
+	return nil
 }

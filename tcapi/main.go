@@ -11,7 +11,12 @@ import (
 
 func main() {
 
-	app.ExampleNewClient()
+	server := &app.Server{}
+
+	err := app.InitRedis(server)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	address := os.Getenv("LISTEN_ADDRESS")
 	lis, err := net.Listen("tcp", address)
