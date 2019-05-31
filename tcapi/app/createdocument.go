@@ -7,8 +7,19 @@ import (
 	"log"
 )
 
-func (s *Server) CreateDocument(ctx context.Context, in *Document) (*Document, error) {
-	log.Printf("CreateDocument() received document: %v", in)
+
+func (d Document) asMap() map[string]interface{} {
+
+	m := make(map[string]interface{})
+
+	m["uuid"] = d.Uuid
+	m["name"]= d.Name
+
+	return m
+}
+
+func (s *Server) CreateDocument(ctx context.Context, doc *Document) (*Document, error) {
+	log.Printf("CreateDocument() received document: %v", doc)
 
 	log.Printf("CreateDocument() s.Rc=%v", s.Rc)
 
@@ -17,17 +28,15 @@ func (s *Server) CreateDocument(ctx context.Context, in *Document) (*Document, e
 		return nil, err
 	}
 
-	key := uuid.String()
+	doc.Uuid = uuid.String()
 
-	//var m map[string]interface{}
+	m := doc.asMap()
 
-	m := make(map[string]interface{})
+	cmd := s.Rc.HMSet(doc.Uuid, m)
 
-	m["name"]= in.Name
+	if cmd.Err() != nil {
+		return nil, cmd.Err()
+	}
 
-	xx := s.Rc.HMSet(key, m)
-
-	log.Printf("CreateDocument() xx=%#v", xx)
-
-	return &Document{Uuid: key, Name: in.Name}, nil
+	return doc, nil
 }
