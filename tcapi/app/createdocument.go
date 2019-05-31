@@ -17,5 +17,17 @@ func (s *Server) CreateDocument(ctx context.Context, in *Document) (*Document, e
 		return nil, err
 	}
 
-	return &Document{Uuid: uuid.String(), Name: in.Name}, nil
+	key := uuid.String()
+
+	//var m map[string]interface{}
+
+	m := make(map[string]interface{})
+
+	m["name"]= in.Name
+
+	xx := s.Rc.HMSet(key, m)
+
+	log.Printf("CreateDocument() xx=%#v", xx)
+
+	return &Document{Uuid: key, Name: in.Name}, nil
 }
