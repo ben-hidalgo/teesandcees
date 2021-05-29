@@ -7,7 +7,7 @@
 		"sharedb": "1.0.0-beta.23",
         "sharedb-mongo": "1.0.0-beta.8",
         "sharedb-redis-pubsub": "1.0.0-beta.1",
-		"ws": "7.0.0",
+		"ws": "7.4.6",
 		"@teamwork/websocket-json-stream": "2.0.0"
 	}
 }
